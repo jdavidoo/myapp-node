@@ -4,6 +4,7 @@ const allowedOrigins = [
     'http://localhost:3001',
     'http://localhost:3000',
     'http://localhost:8080',
+    'https://myapp-node.onrender.com:443',
 '*'
 ];
 
