@@ -9,6 +9,7 @@ const productosRoutes = require('./routes/productos');
 const corsOptions = require('./corsOptions');
 const pedidosRoutes = require('./routes/pedidos');
 
+const { APP_PORT, APP_HOST } = require('./constants/api-constants');
 const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors(corsOptions));
@@ -21,10 +22,8 @@ app.use('/usuarios', usuariosRoutes);
 app.use('/productos', productosRoutes);
 app.use('/pedidos', pedidosRoutes);
 
-const PORT = 3000;
-
 sequelize.sync().then(() => {
-app.listen(PORT, () => {
-console.log(`Servidor corriendo en http://localhost:${PORT}`);
+app.listen(APP_PORT, () => {
+console.log(`Servidor corriendo en http://localhost:${APP_PORT}`);
 });
 });
